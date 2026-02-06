@@ -14,6 +14,7 @@ export interface BlogPost {
   content: string;
   readingTime: string;
   tags?: string[];
+  published?: boolean;
 }
 
 export interface BlogPostMeta {
@@ -23,6 +24,7 @@ export interface BlogPostMeta {
   excerpt: string;
   readingTime: string;
   tags?: string[];
+  published?: boolean;
 }
 
 function calculateReadingTime(content: string): string {
@@ -53,8 +55,10 @@ export function getSortedPostsData(): BlogPostMeta[] {
         excerpt: data.excerpt || content.slice(0, 160) + "...",
         readingTime: calculateReadingTime(content),
         tags: data.tags || [],
+        published: data.published !== false,
       };
-    });
+    })
+    .filter((post) => post.published);
 
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
@@ -67,7 +71,15 @@ export function getAllPostSlugs(): string[] {
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames
     .filter((fileName) => fileName.endsWith(".md"))
-    .map((fileName) => fileName.replace(/\.md$/, ""));
+    .map((fileName) => {
+      const slug = fileName.replace(/\.md$/, "");
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const { data } = matter(fileContents);
+      return { slug, published: data.published !== false };
+    })
+    .filter((item) => item.published)
+    .map((item) => item.slug);
 }
 
 export async function getPostData(slug: string): Promise<BlogPost | null> {
@@ -80,6 +92,11 @@ export async function getPostData(slug: string): Promise<BlogPost | null> {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
+  const published = data.published !== false;
+  if (!published) {
+    return null;
+  }
+
   const processedContent = await remark().use(html).process(content);
   const contentHtml = processedContent.toString();
 
@@ -91,5 +108,6 @@ export async function getPostData(slug: string): Promise<BlogPost | null> {
     content: contentHtml,
     readingTime: calculateReadingTime(content),
     tags: data.tags || [],
+    published,
   };
 }

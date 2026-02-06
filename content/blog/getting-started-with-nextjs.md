@@ -3,6 +3,7 @@ title: "Getting Started with Next.js"
 date: "2025-01-15"
 excerpt: "A comprehensive guide to building modern web applications with Next.js, covering everything from setup to deployment."
 tags: ["Next.js", "React", "Web Development"]
+published: false
 ---
 
 # Getting Started with Next.js

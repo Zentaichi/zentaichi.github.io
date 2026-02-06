@@ -3,6 +3,7 @@ title: "Building Accessible Web Interfaces"
 date: "2025-01-28"
 excerpt: "Accessibility isn't just a nice-to-have; it's essential. Here's how I approach building inclusive digital experiences."
 tags: ["Accessibility", "UX", "Best Practices"]
+published: false
 ---
 
 # Building Accessible Web Interfaces

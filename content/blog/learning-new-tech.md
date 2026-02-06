@@ -3,6 +3,7 @@ title: "Learning New Tech"
 date: "2026-01-25"
 excerpt: "My experience with trying to adopt new languages and tech stack"
 tags: ["Next.js", "React", "Python"]
+published: true
 ---
 
 # Learning New Tech

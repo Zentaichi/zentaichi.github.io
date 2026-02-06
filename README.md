@@ -67,6 +67,7 @@ title: "Post Title"
 date: "2025-01-30"
 excerpt: "A brief description of the post."
 tags: ["Tag1", "Tag2"]
+published: true
 ---
 
 Your content here...
