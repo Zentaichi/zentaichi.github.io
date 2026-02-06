@@ -15,10 +15,9 @@ const skills = [
 ];
 
 const socials = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Mail, href: "#", label: "Email" },
+  { icon: Github, href: "https://github.com/zentaichi", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/ernest-endrino/", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:ernest.endrino@gmail.com", label: "Email" },
 ];
 
 export function HeroSection() {
