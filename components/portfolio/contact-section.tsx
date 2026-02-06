@@ -29,7 +29,7 @@ export function ContactSection() {
         </p>
 
         <a
-          href="mailto:hello@example.com"
+          href="mailto:ernest.endrino@gmail.com"
           className={cn(
             "group inline-flex items-center gap-2 rounded-lg border border-primary/50 bg-primary/10 px-6 py-3 font-medium text-primary",
             "transition-all duration-300",
@@ -44,42 +44,13 @@ export function ContactSection() {
 
       <footer className="mt-24 border-t border-border pt-8">
         <p className="text-sm text-muted-foreground">
-          Loosely designed in{" "}
+          Made with love by{" "}
           <a
-            href="#"
+            href="https://github.com/zentaichi"
             className="transition-colors duration-300 hover:text-primary"
           >
-            Figma
-          </a>{" "}
-          and coded in{" "}
-          <a
-            href="#"
-            className="transition-colors duration-300 hover:text-primary"
-          >
-            Visual Studio Code
+            Zentaichi
           </a>
-          . Built with{" "}
-          <a
-            href="#"
-            className="transition-colors duration-300 hover:text-primary"
-          >
-            Next.js
-          </a>{" "}
-          and{" "}
-          <a
-            href="#"
-            className="transition-colors duration-300 hover:text-primary"
-          >
-            Tailwind CSS
-          </a>
-          , deployed on{" "}
-          <a
-            href="#"
-            className="transition-colors duration-300 hover:text-primary"
-          >
-            Vercel
-          </a>
-          .
         </p>
       </footer>
     </section>

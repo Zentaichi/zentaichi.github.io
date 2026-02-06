@@ -26,13 +26,14 @@ export function HeroSection() {
     <section className="mb-32">
       <div className="mb-8">
         <h1 className="mb-2 text-5xl font-bold tracking-tight text-foreground md:text-6xl">
-          <span className="text-balance">Web Developer</span>
+          <span className="text-balance">Ernest Endrino</span>
         </h1>
         <p className="text-lg font-medium text-primary">Full-Stack Developer</p>
+        <p className="mt-2 text-sm font-mono text-muted-foreground/70">@Zentaichi</p>
       </div>
 
       <p className="mb-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
-        Full-Stack Developer with a proven track record of optimizing enterprise-level MIS environments. Specialized in Laravel and Vue.js, with a focus on resolving critical performance bottlenecks, implementing secure access protocols, and architecting real-time communication modules.
+        I'm a Full-Stack Developer with a proven track record of optimizing enterprise-level MIS environments. Specialized in Laravel and Vue.js, with a focus on resolving critical performance bottlenecks, implementing secure access protocols, and architecting real-time communication modules.
       </p>
 
       <p className="mb-10 max-w-2xl text-pretty leading-relaxed text-muted-foreground">

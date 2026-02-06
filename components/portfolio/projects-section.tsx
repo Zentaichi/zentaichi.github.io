@@ -8,29 +8,29 @@ import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Project One",
+    title: "The H.O.L.E.",
     description:
-      "A full-stack application that helps users track their daily habits and build consistent routines. Features real-time sync and data visualization.",
+      "A digital sanctuary for unsent letters and unspoken words. HOLE is an anonymous platform where users can share letters they never sent, creating a collective space for emotional expression and healing.",
     href: "#",
     github: "#",
-    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+    technologies: ["Next.js", "TypeScript", "TailwindCSS", "PostgreSQL", "shadcn/ui", "Lucide Icons"],
     image: undefined,
   },
   {
-    title: "Project Two",
+    title: "Swiss Army Tools",
     description:
-      "An open-source component library built with accessibility in mind. Provides a set of reusable UI components for React applications.",
-    href: "#",
-    github: "#",
-    technologies: ["React", "Storybook", "Testing Library", "Rollup"],
+      "A comprehensive collection of developer utilities and tools, all accessible from one convenient web application inspired by DevUtils.",
+    href: "https://zentaichi.github.io/swiss-army-tools/",
+    github: "https://github.com/zentaichi/swiss-army-tools",
+    technologies: ["Vue.js", "Vite", "TailwindCSS", "Vue Router"],
     image: undefined,
   },
   {
-    title: "Project Three",
+    title: "React Tic-Tac-Toe",
     description:
-      "A CLI tool for automating development workflows. Streamlines common tasks like scaffolding, testing, and deployment.",
-    href: "#",
-    github: "#",
+      "A tutorial project to practice React fundamentals by building a classic Tic-Tac-Toe game with interactive features and state management.",
+    href: "https://zentaichi.github.io/tic-tac-toe/",
+    github: "https://github.com/Zentaichi/tic-tac-toe",
     technologies: ["Node.js", "Commander", "Inquirer", "Chalk"],
     image: undefined,
   },
