@@ -13,7 +13,7 @@ export default function BlogPage() {
   const posts = getSortedPostsData();
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="relative z-10 min-h-screen">
       <div className="mx-auto max-w-3xl px-6 py-16 md:px-12 md:py-24">
         <Link
           href="/"

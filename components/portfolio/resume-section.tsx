@@ -13,7 +13,7 @@ export function ResumeSection() {
       <div className="grid gap-6 md:grid-cols-2">
         {/* Resume Card */}
         <div className="group relative overflow-hidden rounded-lg border border-border bg-card/50 p-6 transition-all duration-300 hover:bg-card hover:border-primary/50">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
           <div className="relative flex flex-col gap-4">
             <div className="flex items-start justify-between gap-4">
@@ -56,7 +56,7 @@ export function ResumeSection() {
 
         {/* Additional Info Card */}
         <div className="group relative overflow-hidden rounded-lg border border-border bg-card/50 p-6 transition-all duration-300 hover:bg-card hover:border-primary/50">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
           <div className="relative flex flex-col gap-4">
             <h3 className="font-semibold text-foreground">Quick Links</h3>
