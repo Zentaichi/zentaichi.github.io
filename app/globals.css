@@ -126,6 +126,76 @@
   }
 }
 
+@layer base {
+  .custom-cursor-enabled {
+    cursor: none;
+  }
+
+  .custom-cursor-enabled * {
+    cursor: none !important;
+  }
+
+  .custom-cursor-enabled a,
+  .custom-cursor-enabled button,
+  .custom-cursor-enabled [role="button"],
+  .custom-cursor-enabled input,
+  .custom-cursor-enabled textarea,
+  .custom-cursor-enabled select,
+  .custom-cursor-enabled summary,
+  .custom-cursor-enabled [data-cursor="pointer"] {
+    cursor: none !important;
+  }
+}
+
+@layer utilities {
+  .custom-cursor {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+  }
+
+  .custom-cursor-dot,
+  .custom-cursor-halo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 150ms ease, width 150ms ease, height 150ms ease,
+      background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+  }
+
+  .custom-cursor-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background-color: var(--color-primary);
+  }
+
+  .custom-cursor-halo {
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklab, var(--color-primary) 35%, transparent);
+    background-color: color-mix(in oklab, var(--color-primary) 12%, transparent);
+    box-shadow: 0 0 18px color-mix(in oklab, var(--color-primary) 28%, transparent);
+  }
+
+  .custom-cursor-visible .custom-cursor-dot,
+  .custom-cursor-visible .custom-cursor-halo {
+    opacity: 1;
+  }
+
+  .custom-cursor-hover .custom-cursor-halo {
+    width: 40px;
+    height: 40px;
+    border-color: color-mix(in oklab, var(--color-primary) 55%, transparent);
+    background-color: color-mix(in oklab, var(--color-primary) 18%, transparent);
+    box-shadow: 0 0 24px color-mix(in oklab, var(--color-primary) 45%, transparent);
+  }
+}
+
 @layer utilities {
   @keyframes float {
     0%, 100% {
