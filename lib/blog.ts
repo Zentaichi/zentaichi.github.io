@@ -60,7 +60,9 @@ export function getSortedPostsData(): BlogPostMeta[] {
     })
     .filter((post) => post.published);
 
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return allPostsData.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 }
 
 export function getAllPostSlugs(): string[] {

@@ -80,15 +80,13 @@ export function BlogSection({ posts }: BlogSectionProps) {
         ))}
       </div>
 
-      {posts.length > 3 && (
-        <Link
-          href="/blog"
-          className="group mt-8 inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors duration-300 hover:text-primary"
-        >
-          View All Posts
-          <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </Link>
-      )}
+      <Link
+        href="/blog"
+        className="group mt-8 inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors duration-300 hover:text-primary"
+      >
+        View All Posts
+        <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </Link>
     </section>
   );
 }
