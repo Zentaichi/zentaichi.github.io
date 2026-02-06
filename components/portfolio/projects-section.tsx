@@ -73,16 +73,28 @@ export function ProjectsSection() {
               </h3>
               <div className="flex items-center gap-3">
                 <a
-                  href={project.github}
+                  href={project.github === "#" ? undefined : project.github}
+                  onClick={(e) => project.github === "#" && e.preventDefault()}
                   aria-label={`GitHub repository for ${project.title}`}
-                  className="text-muted-foreground transition-all duration-300 hover:text-primary hover:drop-shadow-[0_0_6px_oklch(0.75_0.12_185_/_0.5)]"
+                  className={cn(
+                    "transition-all duration-300",
+                    project.github === "#"
+                      ? "cursor-not-allowed text-muted-foreground/40 opacity-50"
+                      : "text-muted-foreground hover:text-primary hover:drop-shadow-[0_0_6px_oklch(0.75_0.12_185_/_0.5)]"
+                  )}
                 >
                   <Github className="h-4 w-4" />
                 </a>
                 <a
-                  href={project.href}
+                  href={project.href === "#" ? undefined : project.href}
+                  onClick={(e) => project.href === "#" && e.preventDefault()}
                   aria-label={`Live demo for ${project.title}`}
-                  className="text-muted-foreground transition-all duration-300 hover:text-primary hover:drop-shadow-[0_0_6px_oklch(0.75_0.12_185_/_0.5)]"
+                  className={cn(
+                    "transition-all duration-300",
+                    project.href === "#"
+                      ? "cursor-not-allowed text-muted-foreground/40 opacity-50"
+                      : "text-muted-foreground hover:text-primary hover:drop-shadow-[0_0_6px_oklch(0.75_0.12_185_/_0.5)]"
+                  )}
                 >
                   <ExternalLink className="h-4 w-4" />
                 </a>
@@ -110,7 +122,7 @@ export function ProjectsSection() {
       </div>
 
       <a
-        href="#"
+        href="https://github.com/zentaichi?tab=repositories"
         className="group mt-8 inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors duration-300 hover:text-primary"
       >
         View Full Project Archive
