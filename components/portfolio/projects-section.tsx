@@ -41,6 +41,7 @@ export function ProjectsSection() {
 
   return (
     <section
+      id="projects"
       ref={ref}
       className={cn(
         "mb-32 transition-all duration-700 ease-out",

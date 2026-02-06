@@ -9,6 +9,7 @@ export function ContactSection() {
 
   return (
     <section
+      id="contact"
       ref={ref}
       className={cn(
         "transition-all duration-700 ease-out",
