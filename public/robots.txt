@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://zentaichi.me
+
+# Sitemaps
+Sitemap: https://zentaichi.me/sitemap.xml
