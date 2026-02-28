@@ -15,6 +15,7 @@ const projects = [
     github: "#",
     technologies: ["Next.js", "TypeScript", "TailwindCSS", "PostgreSQL", "shadcn/ui", "Lucide Icons"],
     image: undefined,
+    status: "in-development" as const,
   },
   {
     title: "Swiss Army Tools",
@@ -24,6 +25,7 @@ const projects = [
     github: "https://github.com/zentaichi/swiss-army-tools",
     technologies: ["Vue.js", "Vite", "TailwindCSS", "Vue Router"],
     image: undefined,
+    status: null,
   },
   {
     title: "React Tic-Tac-Toe",
@@ -31,8 +33,9 @@ const projects = [
       "A tutorial project to practice React fundamentals by building a classic Tic-Tac-Toe game with interactive features and state management.",
     href: "https://zentaichi.github.io/tic-tac-toe/",
     github: "https://github.com/Zentaichi/tic-tac-toe",
-    technologies: ["Node.js", "Commander", "Inquirer", "Chalk"],
+    technologies: ["React", "TypeScript", "Vite"],
     image: undefined,
+    status: null,
   },
 ];
 
@@ -68,7 +71,7 @@ export function ProjectsSection() {
                 />
               </div>
             )}
-            <div className="mb-4 flex items-center justify-between">
+            <div className="mb-2 flex items-center justify-between">
               <h3 className="font-semibold text-foreground transition-colors duration-300 hover:text-primary">
                 {project.title}
               </h3>
@@ -100,6 +103,17 @@ export function ProjectsSection() {
                   <ExternalLink className="h-4 w-4" />
                 </a>
               </div>
+            </div>
+            <div className="mb-3 h-4">
+              {project.status === "in-development" && (
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-primary/80">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+                  </span>
+                  In Development
+                </span>
+              )}
             </div>
             <p className="mb-4 flex-1 text-pretty text-sm text-muted-foreground">
               {project.description}
