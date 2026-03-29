@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const skillGroups = [
@@ -66,6 +66,11 @@ export function HeroSection() {
 
           <span className="inline-flex items-center rounded-full border border-border bg-secondary/50 px-3 py-1 font-mono text-xs leading-none text-muted-foreground">
             Available Fri - Sun
+          </span>
+
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-green-500/10 px-3 py-1 font-mono text-xs leading-none text-green-600/80">
+            <Briefcase className="h-3 w-3" />
+            Open to Work
           </span>
         </div>
       </div>
