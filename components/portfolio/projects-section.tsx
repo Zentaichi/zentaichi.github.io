@@ -14,8 +14,8 @@ const projects = [
     title: "The H.O.L.E.",
     description:
       "A digital sanctuary for unsent letters and unspoken words. HOLE is an anonymous platform where users can share letters they never sent, creating a collective space for emotional expression and healing.",
-    href: "#",
-    github: "#",
+    href: null,
+    github: null,
     technologies: ["Next.js", "TypeScript", "TailwindCSS", "PostgreSQL", "shadcn/ui", "Lucide Icons"],
     image: undefined,
     status: "in-development" as ProjectStatus,
@@ -88,32 +88,38 @@ export function ProjectsSection() {
                   {project.title}
                 </h3>
                 <div className="flex items-center gap-3">
-                  <a
-                    href={project.github === "#" ? undefined : project.github}
-                    onClick={(e) => project.github === "#" && e.preventDefault()}
-                    aria-label={`GitHub repository for ${project.title}`}
-                    className={cn(
-                      "transition-all duration-300",
-                      project.github === "#"
-                        ? "cursor-not-allowed text-muted-foreground/40 opacity-50"
-                        : "text-muted-foreground hover:text-primary hover:drop-shadow-[0_0_6px_oklch(0.75_0.12_185/0.5)]"
-                    )}
-                  >
-                    <Github className="h-4 w-4" />
-                  </a>
-                  <a
-                    href={project.href === "#" ? undefined : project.href}
-                    onClick={(e) => project.href === "#" && e.preventDefault()}
-                    aria-label={`Live demo for ${project.title}`}
-                    className={cn(
-                      "transition-all duration-300",
-                      project.href === "#"
-                        ? "cursor-not-allowed text-muted-foreground/40 opacity-50"
-                        : "text-muted-foreground hover:text-primary hover:drop-shadow-[0_0_6px_oklch(0.75_0.12_185/0.5)]"
-                    )}
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
+                  {project.github ? (
+                    <a
+                      href={project.github}
+                      aria-label={`GitHub repository for ${project.title}`}
+                      className="text-muted-foreground transition-all duration-300 hover:text-primary hover:drop-shadow-[0_0_6px_oklch(0.75_0.12_185/0.5)]"
+                    >
+                      <Github className="h-4 w-4" />
+                    </a>
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      className="cursor-not-allowed text-muted-foreground/40 opacity-50"
+                    >
+                      <Github className="h-4 w-4" />
+                    </span>
+                  )}
+                  {project.href ? (
+                    <a
+                      href={project.href}
+                      aria-label={`Live demo for ${project.title}`}
+                      className="text-muted-foreground transition-all duration-300 hover:text-primary hover:drop-shadow-[0_0_6px_oklch(0.75_0.12_185/0.5)]"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      className="cursor-not-allowed text-muted-foreground/40 opacity-50"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="flex min-h-10 flex-wrap items-center gap-2">

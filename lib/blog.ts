@@ -10,10 +10,12 @@ export interface BlogPost {
   slug: string;
   title: string;
   date: string;
+  updatedAt?: string;
   excerpt: string;
   content: string;
   readingTime: string;
   tags?: string[];
+  image?: string;
   published?: boolean;
 }
 
@@ -21,9 +23,11 @@ export interface BlogPostMeta {
   slug: string;
   title: string;
   date: string;
+  updatedAt?: string;
   excerpt: string;
   readingTime: string;
   tags?: string[];
+  image?: string;
   published?: boolean;
 }
 
@@ -52,9 +56,11 @@ export function getSortedPostsData(): BlogPostMeta[] {
         slug,
         title: data.title || slug,
         date: data.date || new Date().toISOString(),
+        updatedAt: data.updatedAt,
         excerpt: data.excerpt || content.slice(0, 160) + "...",
         readingTime: calculateReadingTime(content),
         tags: data.tags || [],
+        image: data.image,
         published: data.published !== false,
       };
     })
@@ -106,10 +112,12 @@ export async function getPostData(slug: string): Promise<BlogPost | null> {
     slug,
     title: data.title || slug,
     date: data.date || new Date().toISOString(),
+    updatedAt: data.updatedAt,
     excerpt: data.excerpt || content.slice(0, 160) + "...",
     content: contentHtml,
     readingTime: calculateReadingTime(content),
     tags: data.tags || [],
+    image: data.image,
     published,
   };
 }

@@ -1,19 +1,64 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getSortedPostsData } from "@/lib/blog";
 import { GlowCard } from "@/components/shared/glow-card";
 import { cn } from "@/lib/utils";
 import { ArrowLeft, ArrowUpRight, Calendar, Clock } from "lucide-react";
 
-export const metadata = {
-  title: "Blog | Portfolio",
-  description: "Thoughts on development, design, and building for the web.",
+const siteUrl = "https://zentaichi.me";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Technical notes on development, architecture, and building for the web.",
+  alternates: {
+    canonical: "/blog/",
+  },
+  openGraph: {
+    title: "Blog | Ernest Endrino",
+    description: "Technical notes on development, architecture, and building for the web.",
+    url: `${siteUrl}/blog/`,
+    type: "website",
+    images: [
+      {
+        url: "/placeholder.png",
+        width: 1200,
+        height: 630,
+        alt: "Ernest Endrino blog preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Ernest Endrino",
+    description: "Technical notes on development, architecture, and building for the web.",
+    images: ["/placeholder.png"],
+  },
 };
 
 export default function BlogPage() {
   const posts = getSortedPostsData();
+  const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Ernest Endrino Blog",
+    description: "Technical notes on development, architecture, and building for the web.",
+    url: `${siteUrl}/blog/`,
+    inLanguage: "en",
+    blogPost: posts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      datePublished: post.date,
+      url: `${siteUrl}/blog/${post.slug}/`,
+      keywords: post.tags,
+    })),
+  };
 
   return (
     <main className="relative z-10 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
       <div className="mx-auto max-w-3xl px-6 py-16 md:px-12 md:py-24">
         <Link
           href="/"

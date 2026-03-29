@@ -27,6 +27,6 @@ While I was building this portfolio alongside other projects, both public or pri
 **Framer/Motion**
 - It's really inspiring to see the portfolios of other web developers and designers. Thinking of how far I can push my creations if I were to adopt even a fraction of their quality motivates me to apply it to my own projects as well but first I'll have to study them and build my skills slow and steady.
 
-## 
+## Final Thoughts
 
 It's pretty interesting to see how much stuff there is to unpack that my curriculum in STI didn't show or even mention throughout my time studying there. Though 5 years from now, I'll surely be adept in using all the juicy tech I can get my grimy hands on.

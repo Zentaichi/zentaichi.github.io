@@ -10,7 +10,7 @@ const experiences = [
     period: "6/2024 — Present",
     title: "Full-Stack Developer",
     company: "Wizzard Technologies Inc.",
-    href: "#",
+    href: null,
     description:
       "Developed information systems for operations, management, human resources, universities, and local government. Engineered Role-Based Access Control systems, optimized query performance by mitigating N+1 queries, and integrated real-time communication modules using Pusher.",
     technologies: ["Laravel", "Vue.js", "MySQL", "Tailwind CSS", "Pusher", "Docker", "CI/CD"],
@@ -19,7 +19,7 @@ const experiences = [
     period: "2/2024 — 5/2024",
     title: "Full-Stack Developer (Intern)",
     company: "Wizzard Technologies Inc.",
-    href: "#",
+    href: null,
     description:
       "Developed core features for HRIS and OES systems including custom notification trackers and activity audit trail functions. Implemented database design conventions and executed system-wide debugging to maintain production stability.",
     technologies: ["Laravel", "Vue.js", "MSSQL", "Database Design", "Agile Methodologies"],
@@ -28,7 +28,7 @@ const experiences = [
     period: "06/2024",
     title: "Information Technology Student",
     company: "STI College Novaliches",
-    href: "#",
+    href: null,
     description:
       "Completed comprehensive education in BS Information Technology with honors, building foundational knowledge in software development, algorithms, and enterprise systems architecture.",
     technologies: ["Information Technology", "Software Development", "Algorithms"],
@@ -55,10 +55,7 @@ export function ExperienceSection() {
       <div className="flex flex-col gap-6">
         {experiences.map((exp, index) => (
           <GlowCard key={index}>
-            <a
-              href={exp.href}
-              className="group block"
-            >
+            <div className="group block">
               <div className="mb-2 flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
                 <span className="text-sm text-muted-foreground">
                   {exp.period}
@@ -89,7 +86,7 @@ export function ExperienceSection() {
                   </span>
                 ))}
               </div>
-            </a>
+            </div>
           </GlowCard>
         ))}
       </div>
