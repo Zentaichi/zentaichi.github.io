@@ -1,17 +1,25 @@
 "use client";
 
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const skills = [
-  "Vue.js",
-  "React",
-  "Laravel",
-  "Node.js",
-  "TailwindCSS",
-  "PostgreSQL",
-  "MySQL",
-  "Docker",
+const skillGroups = [
+  {
+    title: "Frontend",
+    context: "Building performant, accessible interfaces and component systems.",
+    skills: ["Vue.js", "React", "TailwindCSS"],
+  },
+  {
+    title: "Backend",
+    context: "Designing APIs and business logic for scalable enterprise workflows.",
+    skills: ["Laravel", "Node.js"],
+  },
+  {
+    title: "Data & Infrastructure",
+    context: "Managing reliable persistence, deployments, and runtime environments.",
+    skills: ["PostgreSQL", "MySQL", "Docker"],
+  },
 ];
 
 const socials = [
@@ -21,6 +29,24 @@ const socials = [
 ];
 
 export function HeroSection() {
+  const formatManilaTime = () =>
+    new Intl.DateTimeFormat("en-PH", {
+      timeZone: "Asia/Manila",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    }).format(new Date());
+
+  const [manilaTime, setManilaTime] = useState(formatManilaTime);
+
+  useEffect(() => {
+    const updateTime = () => setManilaTime(formatManilaTime());
+    updateTime();
+
+    const intervalId = window.setInterval(updateTime, 60_000);
+    return () => window.clearInterval(intervalId);
+  }, []);
+
   return (
     <section className="mb-32">
       <div className="mb-8">
@@ -28,7 +54,20 @@ export function HeroSection() {
           <span className="text-balance">Ernest Endrino</span>
         </h1>
         <p className="text-lg font-medium text-primary">Full-Stack Developer</p>
-        <p className="mt-2 text-sm font-mono text-muted-foreground/70">@Zentaichi</p>
+
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <span className="inline-flex items-center rounded-full border border-border/50 bg-secondary/30 px-3 py-1 font-mono text-xs leading-none text-muted-foreground/70">
+            @Zentaichi
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/50 px-3 py-1 font-mono text-xs leading-none text-muted-foreground">
+            <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+            Quezon City, PH · PHT (UTC+8) · {manilaTime}
+          </span>
+
+          <span className="inline-flex items-center rounded-full border border-border bg-secondary/50 px-3 py-1 font-mono text-xs leading-none text-muted-foreground">
+            Available Fri - Sun
+          </span>
+        </div>
       </div>
 
       <p className="mb-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
@@ -43,19 +82,30 @@ export function HeroSection() {
         <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
           Skills
         </h2>
-        <div className="flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <span
-              key={skill}
-              className={cn(
-                "rounded-full border border-border bg-secondary/50 px-3 py-1 text-sm text-secondary-foreground",
-                "transition-all duration-300",
-                "hover:border-primary/50 hover:bg-primary/10 hover:text-primary",
-                "hover:shadow-[0_0_12px_oklch(0.75_0.12_185_/_0.3)]"
-              )}
+        <div className="grid gap-6 md:grid-cols-2">
+          {skillGroups.map((group) => (
+            <div
+              key={group.title}
+              className="rounded-lg border border-border bg-card/40 p-4"
             >
-              {skill}
-            </span>
+              <h3 className="text-sm font-semibold text-foreground">{group.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{group.context}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className={cn(
+                      "rounded-full border border-border bg-secondary/50 px-3 py-1 text-sm text-secondary-foreground",
+                      "transition-all duration-300",
+                      "hover:border-primary/50 hover:bg-primary/10 hover:text-primary",
+                      "hover:shadow-[0_0_12px_oklch(0.75_0.12_185/0.3)]"
+                    )}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -68,7 +118,7 @@ export function HeroSection() {
             aria-label={label}
             className={cn(
               "text-muted-foreground transition-all duration-300",
-              "hover:text-primary hover:drop-shadow-[0_0_8px_oklch(0.75_0.12_185_/_0.6)]"
+              "hover:text-primary hover:drop-shadow-[0_0_8px_oklch(0.75_0.12_185/0.6)]"
             )}
           >
             <Icon className="h-5 w-5" />
