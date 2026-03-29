@@ -33,11 +33,17 @@ jobs:
 
       - name: Build
         run: npm run build
+        # This will run 'next build' AND 'next-sitemap' automatically
+
+      - name: List files (Debug step)
+        run: ls -R out
+        # This helps you see in the GitHub Action logs if index.html actually exists in 'out'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          # Use the absolute path to be safe
+          path: ./out
 
   deploy:
     runs-on: ubuntu-latest
