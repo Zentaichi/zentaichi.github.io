@@ -48,7 +48,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="mb-32">
+    <section className="mb-16">
       <div className="mb-8">
         <h1 className="mb-2 text-5xl font-bold tracking-tight text-foreground md:text-6xl">
           <span className="text-balance">Ernest Endrino</span>

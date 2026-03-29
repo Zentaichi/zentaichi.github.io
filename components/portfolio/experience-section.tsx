@@ -42,7 +42,7 @@ export function ExperienceSection() {
     <section
       ref={ref}
       className={cn(
-        "mb-32 transition-all duration-700 ease-out",
+        "mb-16 transition-all duration-700 ease-out",
         isVisible
           ? "translate-y-0 opacity-100"
           : "translate-y-8 opacity-0"
@@ -82,7 +82,7 @@ export function ExperienceSection() {
                     className={cn(
                       "rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary",
                       "transition-all duration-300",
-                      "group-hover:border-primary/50 group-hover:shadow-[0_0_8px_oklch(0.75_0.12_185_/_0.2)]"
+                      "group-hover:border-primary/50 group-hover:shadow-[0_0_8px_oklch(0.75_0.12_185/0.2)]"
                     )}
                   >
                     {tech}

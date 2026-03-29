@@ -22,7 +22,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
     <section
       ref={ref}
       className={cn(
-        "mb-32 transition-all duration-700 ease-out",
+        "mb-16 transition-all duration-700 ease-out",
         isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
       )}
       style={{ transitionDelay: "150ms" }}

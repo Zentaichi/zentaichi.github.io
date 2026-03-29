@@ -13,7 +13,7 @@ import {
 
 export function ResumeSection() {
   return (
-    <section className="mb-32 scroll-mt-24">
+    <section className="mb-16 scroll-mt-24">
       <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
         Resume
       </h2>
