@@ -3,6 +3,7 @@ import { getSortedPostsData } from "@/lib/blog";
 import {
   HeroSection,
   ExperienceSection,
+  EducationSection,
   ProjectsSection,
   ResumeSection,
   BlogSection,
@@ -71,6 +72,7 @@ export default function Home() {
       <div className="mx-auto max-w-5xl px-6 py-16 md:px-12 md:py-24 lg:px-24 lg:py-32">
         <HeroSection />
         <ExperienceSection />
+        <EducationSection />
         <ProjectsSection />
         <BlogSection posts={posts} />
         <ResumeSection />

@@ -24,15 +24,6 @@ const experiences = [
       "Developed core features for HRIS and OES systems including custom notification trackers and activity audit trail functions. Implemented database design conventions and executed system-wide debugging to maintain production stability.",
     technologies: ["Laravel", "Vue.js", "MSSQL", "Database Design", "Agile Methodologies"],
   },
-  {
-    period: "06/2024",
-    title: "Information Technology Student",
-    company: "STI College Novaliches",
-    href: null,
-    description:
-      "Completed comprehensive education in BS Information Technology with honors, building foundational knowledge in software development, algorithms, and enterprise systems architecture.",
-    technologies: ["Information Technology", "Software Development", "Algorithms"],
-  },
 ];
 
 export function ExperienceSection() {
