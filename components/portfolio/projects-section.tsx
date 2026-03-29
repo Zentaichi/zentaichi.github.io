@@ -118,12 +118,12 @@ export function ProjectsSection() {
               </div>
               <div className="flex min-h-10 flex-wrap items-center gap-2">
                 {isRealProject && (
-                  <span className="inline-flex items-center rounded-full border border-border/50 bg-secondary/30 px-2 py-0.5 font-mono text-xs text-muted-foreground/60">
+                  <span className="inline-flex items-center rounded-full border border-border/60 bg-secondary/40 px-2 py-0.5 font-mono text-xs leading-none text-foreground/80">
                     Production
                   </span>
                 )}
                 {isLearning && (
-                  <span className="inline-flex items-center rounded-full border border-border/50 bg-secondary/30 px-2 py-0.5 font-mono text-xs text-muted-foreground/60">
+                  <span className="inline-flex items-center rounded-full border border-border/50 bg-secondary/30 px-2 py-0.5 font-mono text-xs leading-none text-muted-foreground/80">
                     Learning
                   </span>
                 )}
