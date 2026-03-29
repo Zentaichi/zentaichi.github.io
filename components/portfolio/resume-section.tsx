@@ -2,11 +2,19 @@
 
 import { Download, FileText } from "lucide-react";
 import Link from "next/link";
+import {
+  DialogClose,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export function ResumeSection() {
   return (
     <section className="mb-32 scroll-mt-24">
-      <h2 className="mb-8 text-3xl font-bold tracking-tight text-foreground">
+      <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
         Resume
       </h2>
 
@@ -33,23 +41,45 @@ export function ResumeSection() {
               and technical skills.
             </p>
 
-            <div className="flex gap-2 pt-2">
+            <div className="flex flex-col gap-2 pt-2 sm:flex-row sm:items-center">
               <a
                 href="/resume.pdf"
                 download="resume.pdf"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-all duration-300 hover:bg-primary/20 hover:shadow-[0_0_12px_oklch(0.75_0.12_185_/_0.3)]"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-all duration-300 hover:bg-primary/20 hover:shadow-[0_0_12px_oklch(0.75_0.12_185_/_0.3)] sm:w-auto"
               >
                 <Download className="h-4 w-4" />
                 Download
               </a>
 
-              <button
-                onClick={() => window.open("/resume.pdf", "_blank")}
-                className="inline-flex items-center gap-2 rounded-lg border border-border bg-transparent px-4 py-2 text-sm font-medium text-foreground transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
-              >
-                <FileText className="h-4 w-4" />
-                View
-              </button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border bg-transparent px-4 py-2 text-sm font-medium text-foreground transition-all duration-300 hover:border-primary/50 hover:bg-primary/5 sm:w-auto">
+                    <FileText className="h-4 w-4" />
+                    View Resume
+                  </button>
+                </DialogTrigger>
+                <DialogContent
+                  className="w-[95vw] max-w-[95vw] p-0 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl"
+                  showCloseButton={false}
+                >
+                  <DialogTitle className="sr-only">Resume Preview</DialogTitle>
+                  <DialogDescription className="sr-only">
+                    Preview of my resume.
+                  </DialogDescription>
+                  <iframe
+                    src="/resume.pdf"
+                    title="Resume Preview"
+                    className="h-[70vh] w-full rounded-lg border-0 sm:h-[75vh] lg:h-[80vh]"
+                  />
+                  <div className="flex justify-end border-t border-border p-3">
+                    <DialogClose asChild>
+                      <button className="inline-flex items-center justify-center rounded-lg border border-border bg-transparent px-4 py-2 text-sm font-medium text-foreground transition-all duration-300 hover:border-primary/50 hover:bg-primary/5">
+                        Close
+                      </button>
+                    </DialogClose>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>
