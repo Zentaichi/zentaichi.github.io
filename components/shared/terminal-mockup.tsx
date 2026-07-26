@@ -441,22 +441,22 @@ export function TerminalMockup() {
   }
 
   return (
-    <div className="fixed bottom-6 left-6 z-40 w-[420px] overflow-hidden rounded-lg border border-border bg-card shadow-2xl">
-      <div className="flex items-center justify-between border-b border-border px-3 py-2">
-        <span className="font-mono text-xs text-muted-foreground">
+    <div className="fixed bottom-6 left-6 z-40 w-[420px] overflow-hidden rounded-lg border border-white/10 bg-[#0c0c0c] shadow-2xl">
+      <div className="flex items-center justify-between border-b border-white/10 px-3 py-2">
+        <span className="font-mono text-xs text-zinc-500">
           TERMINAL
         </span>
         <div className="flex items-center gap-1">
           <button
             onClick={handleClear}
-            className="rounded p-1 text-muted-foreground transition-colors hover:bg-secondary/50 hover:text-foreground"
+            className="rounded p-1 text-zinc-500 transition-colors hover:bg-white/10 hover:text-zinc-300"
             aria-label="Clear terminal"
           >
             <Trash2 className="h-3.5 w-3.5" />
           </button>
           <button
             onClick={handleClose}
-            className="rounded p-1 text-muted-foreground transition-colors hover:bg-secondary/50 hover:text-foreground"
+            className="rounded p-1 text-zinc-500 transition-colors hover:bg-white/10 hover:text-zinc-300"
             aria-label="Close terminal"
           >
             <X className="h-3.5 w-3.5" />
@@ -466,11 +466,11 @@ export function TerminalMockup() {
 
       <div
         ref={scrollRef}
-        className="flex min-h-[320px] flex-col overflow-y-auto p-3"
+        className="flex min-h-[320px] max-h-[400px] flex-col overflow-y-auto p-3"
         onClick={handleContainerClick}
       >
         <pre
-          className="flex-1 font-mono text-[13px] leading-relaxed text-green-400 whitespace-pre-wrap break-words"
+          className="min-h-0 flex-1 font-mono text-[13px] leading-relaxed text-green-400 whitespace-pre-wrap break-words"
           role="log"
           aria-live="polite"
         >
@@ -494,7 +494,7 @@ export function TerminalMockup() {
         {phase === "intro" && (
           <button
             onClick={skipToInteractive}
-            className="mt-1 w-full rounded bg-secondary/30 px-2 py-1 font-mono text-xs text-muted-foreground transition-colors hover:bg-secondary/50 hover:text-foreground"
+            className="mt-1 w-full rounded bg-white/5 px-2 py-1 font-mono text-xs text-zinc-500 transition-colors hover:bg-white/10 hover:text-zinc-300"
           >
             Press Enter to skip intro...
           </button>
