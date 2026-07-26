@@ -1,38 +1,43 @@
 # Portfolio
 
-A minimalist portfolio website with subtle interactive animations and a markdown-powered blog.
+Personal portfolio website with blog, interactive CLI mockup, and a CMD+K command palette — built with Next.js, deployed to Cloudflare Pages.
 
 ## Features
 
 - Single-page portfolio with scroll-triggered fade animations
+- Light/dark theme with system preference detection and manual toggle
 - Interactive glow effects on cards and buttons
+- Custom cursor with hover states (respects `prefers-reduced-motion`)
+- CMD+K command palette for keyboard-driven navigation
+- Terminal/CLI mockup easter egg with typewriter effect
+- Reading progress bar on blog posts
 - Blog with markdown file support
-- Dark theme with teal accent colors
-- Fully responsive design
+- Fully responsive, skip-to-content link, focus-visible styles
 
 ## Tech Stack
 
-- **Framework**: Next.js 16 (App Router)
+- **Framework**: Next.js 16 (App Router, static export)
 - **Styling**: Tailwind CSS 4
-- **UI Components**: shadcn/ui, Radix UI
+- **UI Components**: shadcn/ui, Radix UI, cmdk
+- **Theme**: next-themes (class strategy, dark default)
 - **Blog**: Markdown with gray-matter and remark
 - **Icons**: Lucide React
 - **Language**: TypeScript
+- **Package Manager**: pnpm
+- **Deployment**: Cloudflare Pages
+- **Analytics**: Umami (prod-only via hostname detection) + Vercel Analytics
 
 ## Getting Started
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Run development server
-npm run dev
+pnpm dev
 
 # Build for production
-npm run build
-
-# Start production server
-npm start
+pnpm build
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
@@ -42,19 +47,26 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 ```
 ├── app/
 │   ├── blog/
-│   │   ├── [slug]/page.tsx    # Individual blog post
-│   │   └── page.tsx           # Blog listing
-│   ├── globals.css            # Global styles and theme
-│   ├── layout.tsx             # Root layout
-│   └── page.tsx               # Home page
+│   │   ├── [slug]/page.tsx     # Individual blog post (SSG + metadata)
+│   │   └── page.tsx            # Blog listing
+│   ├── globals.css             # Theme tokens, animations, prose, utilities
+│   ├── layout.tsx              # Root layout (ThemeProvider, palette, terminal)
+│   ├── not-found.tsx           # Custom 404 for Cloudflare Pages
+│   └── page.tsx                # Home page (single-page portfolio)
 ├── components/
-│   ├── portfolio/             # Portfolio-specific components
-│   ├── shared/                # Reusable components
-│   └── ui/                    # shadcn/ui components
+│   ├── blog/                   # Blog-specific (blog-post-content wrapper)
+│   ├── portfolio/              # Portfolio sections (hero, experience, projects, etc.)
+│   ├── shared/                 # Reusable (cursor, glow-card, terminal, palette, etc.)
+│   └── ui/                     # shadcn/ui components
 ├── content/
-│   └── blog/                  # Markdown blog posts
-├── hooks/                     # Custom React hooks
-└── lib/                       # Utilities and blog functions
+│   └── blog/                   # Markdown blog posts
+├── hooks/                      # Custom React hooks (useFadeIn)
+├── lib/                        # Utilities (cn, blog functions)
+├── public/
+│   ├── _headers                # Cloudflare Pages cache rules
+│   ├── resume.html             # Resume template
+│   └── resume.pdf              # Generated PDF resume
+└── scripts/                    # Build scripts (resume PDF generation)
 ```
 
 ## Adding Blog Posts
@@ -73,22 +85,16 @@ published: true
 Your content here...
 ```
 
-## Resume
+## Deployment
 
-A Resume section is included with download and view functionality. The resume is served as a PDF from the `public` folder.
+This site deploys to Cloudflare Pages:
 
-### Setting Up Your Resume
+- **Build command:** `pnpm build`
+- **Output directory:** `out`
+- **Environment:** Cloudflare Pages auto-deploys on push to `master`
+- **Custom domain:** `zentaichi.me`
 
-1. **Edit the HTML resume**: Update `public/resume.html` with your information
-2. **Generate PDF** (recommended): 
-   ```bash
-   npm install puppeteer --save-dev
-   node scripts/generate-resume-pdf.js
-   ```
-   This creates `public/resume.pdf`
-3. **Or provide your own**: Simply place your PDF file at `public/resume.pdf`
-
-The Resume section displays on the home page with quick links to blog, projects, and contact information.
+Caching is configured via `public/_headers` with immutable cache for hashed assets and short-lived cache for HTML.
 
 ## License
 
