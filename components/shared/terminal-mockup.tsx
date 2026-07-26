@@ -511,7 +511,8 @@ export function TerminalMockup() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 bg-transparent font-mono text-[13px] text-green-400 outline-0 ring-0 focus:outline-0 focus:ring-0 caret-green-400"
+              className="flex-1 bg-transparent font-mono text-[13px] text-green-400 caret-green-400"
+              style={{ outline: "none" }}
               autoFocus
               spellCheck={false}
               autoComplete="off"
