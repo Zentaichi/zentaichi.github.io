@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: 'Ernest Endrino | Full-Stack Developer',
     template: '%s | Ernest Endrino',
   },
-  description: 'Portfolio of Ernest Endrino, a full-stack developer building modern web applications and sharing engineering insights.',
+  description: 'Full-stack developer in the Philippines specializing in Laravel, Vue.js, and TypeScript. Building enterprise MIS, CLI tools, and desktop apps.',
   alternates: {
     canonical: '/',
   },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: 'Ernest Endrino Portfolio',
     title: 'Ernest Endrino | Full-Stack Developer',
-    description: 'Portfolio of Ernest Endrino, a full-stack developer building modern web applications and sharing engineering insights.',
+    description: 'Full-stack developer in the Philippines specializing in Laravel, Vue.js, and TypeScript. Building enterprise MIS, CLI tools, and desktop apps.',
     images: [
       {
         url: '/placeholder.png',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Ernest Endrino | Full-Stack Developer',
-    description: 'Portfolio of Ernest Endrino, a full-stack developer building modern web applications and sharing engineering insights.',
+    description: 'Full-stack developer in the Philippines specializing in Laravel, Vue.js, and TypeScript. Building enterprise MIS, CLI tools, and desktop apps.',
     images: ['/placeholder.png'],
   },
   icons: {

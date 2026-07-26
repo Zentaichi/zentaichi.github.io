@@ -55,11 +55,11 @@ export function HeroSection() {
         </h1>
         <p className="text-lg font-medium text-primary">Full-Stack Developer</p>
 
-        <div className="mt-3 flex flex-wrap items-center gap-2">
+        <div className="mt-3 flex flex-wrap items-center gap-2" role="note" aria-label="Profile metadata">
           <span className="inline-flex items-center rounded-full border border-border/50 bg-secondary/30 px-3 py-1 font-mono text-xs leading-none text-muted-foreground/70">
             @Zentaichi
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/50 px-3 py-1 font-mono text-xs leading-none text-muted-foreground">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/50 px-3 py-1 font-mono text-xs leading-none text-muted-foreground" aria-live="polite">
             <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
             Quezon City, PH · PHT (UTC+8) · {manilaTime}
           </span>

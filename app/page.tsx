@@ -13,16 +13,16 @@ import {
 const siteUrl = "https://zentaichi.me";
 
 export const metadata: Metadata = {
-  title: "Ernest Endrino | Full-Stack Developer Portfolio",
+  title: "Ernest Endrino | Full-Stack Developer",
   description:
-    "Full-stack developer portfolio featuring web projects, engineering experience, and technical writing by Ernest Endrino.",
+    "Full-stack developer in the Philippines specializing in Laravel, Vue.js, and TypeScript. Building enterprise MIS, CLI tools, and desktop apps.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Ernest Endrino | Full-Stack Developer Portfolio",
+    title: "Ernest Endrino | Full-Stack Developer",
     description:
-      "Explore projects, experience, and blog posts by Ernest Endrino, a full-stack developer based in the Philippines.",
+      "Full-stack developer in the Philippines specializing in Laravel, Vue.js, and TypeScript. Building enterprise MIS, CLI tools, and desktop apps.",
     url: siteUrl,
     type: "website",
     images: [
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ernest Endrino | Full-Stack Developer Portfolio",
+    title: "Ernest Endrino | Full-Stack Developer",
     description:
-      "Explore projects, experience, and blog posts by Ernest Endrino, a full-stack developer based in the Philippines.",
+      "Full-stack developer in the Philippines specializing in Laravel, Vue.js, and TypeScript. Building enterprise MIS, CLI tools, and desktop apps.",
     images: ["/placeholder.png"],
   },
 };
@@ -60,14 +60,52 @@ export default function Home() {
       "Laravel",
       "Vue.js",
     ],
-    sameAs: ["https://github.com/zentaichi"],
+    sameAs: [
+      "https://github.com/zentaichi",
+      "https://www.linkedin.com/in/ernest-endrino/",
+    ],
   };
+
+  const projectsJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "Sleepyhead CLI",
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Windows",
+      description:
+        "Guided TypeScript CLI for hardening MariaDB/MySQL installations with Transparent Data Encryption.",
+      url: "https://github.com/Zentaichi/sleepyhead-cli",
+      author: {
+        "@type": "Person",
+        name: "Ernest Endrino",
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "Horde",
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Windows",
+      description:
+        "Electron + Vue 3 desktop app for managing multiple PHP versions and portable database servers without Docker.",
+      url: "https://github.com/Zentaichi/horde",
+      author: {
+        "@type": "Person",
+        name: "Ernest Endrino",
+      },
+    },
+  ];
 
   return (
     <main className="relative z-10 min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsJsonLd) }}
       />
       <div className="mx-auto max-w-5xl px-6 py-16 md:px-12 md:py-24 lg:px-24 lg:py-32">
         <HeroSection />
