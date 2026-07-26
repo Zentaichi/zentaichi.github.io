@@ -4,7 +4,9 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AnimatedBackground } from '@/components/shared/animated-background'
 import { CustomCursor } from '@/components/shared/custom-cursor'
+import { ThemeToggle } from '@/components/shared/theme-toggle'
 import { UmamiAnalytics } from '@/components/shared/umami-analytics'
+import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -98,9 +100,12 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-sans antialiased`}>
-        <CustomCursor />
-        <AnimatedBackground />
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <CustomCursor />
+          <AnimatedBackground />
+          {children}
+          <ThemeToggle />
+        </ThemeProvider>
         <Analytics />
         <UmamiAnalytics />
       </body>
