@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Terminal, Trash2, X } from "lucide-react";
+import { Trash2, X } from "lucide-react";
 
 const PROMPT = "zentaichi@portfolio / >";
 
@@ -95,7 +95,6 @@ const KNOWN_COMMANDS = [
   "exit",
   "ls",
   "sudo",
-  "vim",
   "npm install",
   "git push --force",
   "rm -rf /",
@@ -195,10 +194,6 @@ const EASTER_EGGS: Record<string, string[]> = {
     "Try 'projects' or 'help'.",
   ],
   sudo: ["Nice try. This terminal has no root access."],
-  vim: [
-    "To exit vim: press Esc, then type :q! and press Enter.",
-    "...you're welcome.",
-  ],
   "npm install": [
     "Added 1,247 packages in 47s.",
     "",
@@ -438,7 +433,6 @@ export function TerminalMockup() {
         className="fixed bottom-6 left-6 z-40 flex items-center gap-2 rounded-lg border border-border bg-card/90 px-3 py-2 font-mono text-xs text-muted-foreground shadow-lg backdrop-blur transition-all duration-300 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_16px_var(--glow)]"
         aria-label="Open terminal"
       >
-        <Terminal className="h-3.5 w-3.5" />
         <span className="text-primary/80">&gt;_</span>
         <span>zentaichi@portfolio ~</span>
         <span className="ml-1 inline-block h-3.5 w-1.5 animate-pulse bg-primary/60" />
@@ -447,22 +441,22 @@ export function TerminalMockup() {
   }
 
   return (
-    <div className="fixed bottom-6 left-6 z-40 w-[420px] overflow-hidden rounded-lg border border-border bg-[#1e1e1e] shadow-2xl">
-      <div className="flex items-center justify-between border-b border-white/10 px-3 py-2">
+    <div className="fixed bottom-6 left-6 z-40 w-[420px] overflow-hidden rounded-lg border border-border bg-card shadow-2xl">
+      <div className="flex items-center justify-between border-b border-border px-3 py-2">
         <span className="font-mono text-xs text-muted-foreground">
           TERMINAL
         </span>
         <div className="flex items-center gap-1">
           <button
             onClick={handleClear}
-            className="rounded p-1 text-muted-foreground transition-colors hover:bg-white/10 hover:text-foreground"
+            className="rounded p-1 text-muted-foreground transition-colors hover:bg-secondary/50 hover:text-foreground"
             aria-label="Clear terminal"
           >
             <Trash2 className="h-3.5 w-3.5" />
           </button>
           <button
             onClick={handleClose}
-            className="rounded p-1 text-muted-foreground transition-colors hover:bg-white/10 hover:text-foreground"
+            className="rounded p-1 text-muted-foreground transition-colors hover:bg-secondary/50 hover:text-foreground"
             aria-label="Close terminal"
           >
             <X className="h-3.5 w-3.5" />
@@ -472,11 +466,11 @@ export function TerminalMockup() {
 
       <div
         ref={scrollRef}
-        className="h-[320px] overflow-y-auto p-3"
+        className="flex min-h-[320px] flex-col overflow-y-auto p-3"
         onClick={handleContainerClick}
       >
         <pre
-          className="font-mono text-[13px] leading-relaxed text-green-400 whitespace-pre-wrap break-words"
+          className="flex-1 font-mono text-[13px] leading-relaxed text-green-400 whitespace-pre-wrap break-words"
           role="log"
           aria-live="polite"
         >
@@ -496,46 +490,36 @@ export function TerminalMockup() {
             </span>
           ))}
         </pre>
-      </div>
 
-      {phase === "intro" && (
-        <div className="border-t border-white/10 px-3 py-1.5">
+        {phase === "intro" && (
           <button
             onClick={skipToInteractive}
-            className="w-full rounded bg-white/5 px-2 py-1 font-mono text-xs text-muted-foreground transition-colors hover:bg-white/10 hover:text-foreground"
+            className="mt-1 w-full rounded bg-secondary/30 px-2 py-1 font-mono text-xs text-muted-foreground transition-colors hover:bg-secondary/50 hover:text-foreground"
           >
             Press Enter to skip intro...
           </button>
-        </div>
-      )}
+        )}
 
-      {phase === "interactive" && (
-        <div className="flex items-center border-t border-white/10 px-3 py-1.5">
-          <span className="mr-1 shrink-0 font-mono text-[13px] text-green-400">
-            {PROMPT}
-          </span>
-          <input
-            ref={inputRef}
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyDown={handleKeyDown}
-            className="flex-1 bg-transparent font-mono text-[13px] text-green-400 outline-none caret-green-400"
-            autoFocus
-            spellCheck={false}
-            autoComplete="off"
-            aria-label="Terminal input"
-          />
-        </div>
-      )}
-
-      <div className="flex items-center justify-between border-t border-white/10 px-3 py-1.5">
-        <span className="text-[10px] text-muted-foreground/50">
-          Interactive — try &apos;help&apos;
-        </span>
-        <kbd className="rounded border border-white/10 bg-white/5 px-1 py-0.5 text-[10px] text-muted-foreground/50">
-          ESC
-        </kbd>
+        {phase === "interactive" && (
+          <div className="mt-1 flex items-center">
+            <span className="mr-1 shrink-0 font-mono text-[13px] text-green-400">
+              {PROMPT}
+            </span>
+            <input
+              ref={inputRef}
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={handleKeyDown}
+              className="flex-1 bg-transparent font-mono text-[13px] text-green-400 outline-none caret-green-400"
+              autoFocus
+              spellCheck={false}
+              autoComplete="off"
+              aria-label="Terminal input"
+              placeholder="Type 'help'..."
+            />
+          </div>
+        )}
       </div>
     </div>
   );
