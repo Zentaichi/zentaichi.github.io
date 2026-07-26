@@ -31,6 +31,7 @@ export function ExperienceSection() {
 
   return (
     <section
+      id="experience"
       ref={ref}
       className={cn(
         "mb-16 transition-all duration-700 ease-out",

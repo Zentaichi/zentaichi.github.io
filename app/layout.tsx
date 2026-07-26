@@ -3,10 +3,12 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AnimatedBackground } from '@/components/shared/animated-background'
+import { CommandPalette } from '@/components/shared/command-palette'
 import { CustomCursor } from '@/components/shared/custom-cursor'
 import { ThemeToggle } from '@/components/shared/theme-toggle'
 import { UmamiAnalytics } from '@/components/shared/umami-analytics'
 import { ThemeProvider } from '@/components/theme-provider'
+import { getSortedPostsData } from '@/lib/blog'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -91,6 +93,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const posts = getSortedPostsData().map((p) => ({ title: p.title, slug: p.slug }));
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -108,6 +112,7 @@ export default function RootLayout({
           <AnimatedBackground />
           <div id="main-content">{children}</div>
           <ThemeToggle />
+          <CommandPalette posts={posts} />
         </ThemeProvider>
         <Analytics />
         <UmamiAnalytics />
