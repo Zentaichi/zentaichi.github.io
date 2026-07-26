@@ -95,7 +95,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        <script defer src="https://cloud.umami.is/script.js" data-website-id="744bdfc7-0f49-4ef3-9032-27fd57ab37ab"></script>
+        {/* <script defer src="https://cloud.umami.is/script.js" data-website-id="744bdfc7-0f49-4ef3-9032-27fd57ab37ab"></script> */}
       </head>
       <body className={`font-sans antialiased`}>
         <CustomCursor />
