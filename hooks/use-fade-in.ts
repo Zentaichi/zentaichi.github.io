@@ -7,6 +7,15 @@ export function useFadeIn(threshold = 0.1, rootMargin = "0px") {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
     const element = ref.current;
     if (!element) return;
 

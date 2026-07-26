@@ -15,6 +15,13 @@ export function CustomCursor() {
       return;
     }
 
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const body = document.body;
     body.classList.add("custom-cursor-enabled");
 

@@ -100,10 +100,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-sans antialiased`}>
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <CustomCursor />
           <AnimatedBackground />
-          {children}
+          <div id="main-content">{children}</div>
           <ThemeToggle />
         </ThemeProvider>
         <Analytics />
