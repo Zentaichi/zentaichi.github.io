@@ -1,4 +1,0 @@
-packages: []
-allowBuilds:
-  puppeteer: true
-  sharp: true
