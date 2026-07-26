@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Github, Linkedin, Mail, Briefcase } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Github, Linkedin, Mail, Briefcase, Hammer } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const skillGroups = [
@@ -28,6 +28,9 @@ const socials = [
   { icon: Mail, href: "mailto:ernest.endrino@gmail.com", label: "Email" },
 ];
 
+const CURRENTLY_BUILDING = ["Horde", "Sleepyhead CLI"];
+const BUILDING_INTERVAL_MS = 5_000;
+
 export function HeroSection() {
   const formatManilaTime = () =>
     new Intl.DateTimeFormat("en-PH", {
@@ -38,12 +41,25 @@ export function HeroSection() {
     }).format(new Date());
 
   const [manilaTime, setManilaTime] = useState(formatManilaTime);
+  const [buildingIndex, setBuildingIndex] = useState(0);
+  const reducedMotion = useRef(false);
 
   useEffect(() => {
     const updateTime = () => setManilaTime(formatManilaTime());
     updateTime();
 
     const intervalId = window.setInterval(updateTime, 60_000);
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    reducedMotion.current = media.matches;
+    if (media.matches) return;
+
+    const intervalId = window.setInterval(() => {
+      setBuildingIndex((prev) => (prev + 1) % CURRENTLY_BUILDING.length);
+    }, BUILDING_INTERVAL_MS);
     return () => window.clearInterval(intervalId);
   }, []);
 
@@ -71,6 +87,15 @@ export function HeroSection() {
           <span className="inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-green-500/10 px-3 py-1 font-mono text-xs leading-none text-green-600/80">
             <Briefcase className="h-3 w-3" />
             Open to Work
+          </span>
+
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-mono text-xs leading-none text-primary/80">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+            </span>
+            <Hammer className="h-3 w-3" />
+            Currently building: {CURRENTLY_BUILDING[buildingIndex]}
           </span>
         </div>
       </div>
