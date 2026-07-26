@@ -466,11 +466,11 @@ export function TerminalMockup() {
 
       <div
         ref={scrollRef}
-        className="flex min-h-[320px] max-h-[400px] flex-col overflow-y-auto p-3"
+        className="min-h-[320px] max-h-[400px] overflow-y-auto p-3"
         onClick={handleContainerClick}
       >
         <pre
-          className="min-h-0 flex-1 font-mono text-[13px] leading-relaxed text-green-400 whitespace-pre-wrap break-words"
+          className="min-h-0 font-mono text-[13px] leading-relaxed text-green-400 whitespace-pre-wrap break-words"
           role="log"
           aria-live="polite"
         >
