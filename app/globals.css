@@ -241,6 +241,21 @@
   .animation-delay-4s {
     animation-delay: 4s;
   }
+
+  @keyframes fade-slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-slide-in {
+    animation: fade-slide-in 300ms ease-out;
+  }
 }
 
 /* Prose styles for blog content */

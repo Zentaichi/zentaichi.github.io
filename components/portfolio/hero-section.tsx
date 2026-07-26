@@ -95,7 +95,13 @@ export function HeroSection() {
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
             </span>
             <Hammer className="h-3 w-3" />
-            Currently building: {CURRENTLY_BUILDING[buildingIndex]}
+            Currently building:{" "}
+            <span
+              key={buildingIndex}
+              className="animate-fade-slide-in inline-block"
+            >
+              {CURRENTLY_BUILDING[buildingIndex]}
+            </span>
           </span>
         </div>
       </div>
