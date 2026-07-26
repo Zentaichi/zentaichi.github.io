@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AnimatedBackground } from '@/components/shared/animated-background'
 import { CustomCursor } from '@/components/shared/custom-cursor'
+import { UmamiAnalytics } from '@/components/shared/umami-analytics'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -95,13 +96,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        {/* <script defer src="https://cloud.umami.is/script.js" data-website-id="744bdfc7-0f49-4ef3-9032-27fd57ab37ab"></script> */}
       </head>
       <body className={`font-sans antialiased`}>
         <CustomCursor />
         <AnimatedBackground />
         {children}
         <Analytics />
+        <UmamiAnalytics />
       </body>
     </html>
   )
