@@ -97,7 +97,7 @@ export function ProjectsSection() {
             {project.image && (
               <div className="relative mb-4 aspect-video w-full overflow-hidden rounded-lg bg-secondary">
                 <Image
-                  src={project.image || "/placeholder.svg"}
+                  src={project.image || "/placeholder.png"}
                   alt={`Screenshot of ${project.title}`}
                   fill
                   className="object-cover transition-transform duration-300 hover:scale-105"

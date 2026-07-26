@@ -38,7 +38,7 @@ export function GlowCard({ children, className }: GlowCardProps) {
       )}
       style={{
         background: isHovered
-          ? `radial-gradient(400px circle at ${position.x}px ${position.y}px, oklch(0.75 0.12 185 / 0.08), transparent 40%)`
+          ? `radial-gradient(400px circle at ${position.x}px ${position.y}px, oklch(0.75 0.12 185 / 0.12), transparent 40%)`
           : undefined,
       }}
     >
