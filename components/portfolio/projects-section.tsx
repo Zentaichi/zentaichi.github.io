@@ -6,7 +6,7 @@ import { GlowCard } from "@/components/shared/glow-card";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 
-type ProjectStatus = "in-development" | null;
+type ProjectStatus = "in-development" | "inactive" | null;
 type ProjectVariant = "real" | "learning" | null;
 
 const projects = [
@@ -40,7 +40,7 @@ const projects = [
     github: null,
     technologies: ["Next.js", "TypeScript", "TailwindCSS", "PostgreSQL", "shadcn/ui", "Lucide Icons"],
     image: undefined,
-    status: "in-development" as ProjectStatus,
+    status: "inactive" as ProjectStatus,
     variant: "real" as ProjectVariant,
   },
   {
@@ -51,7 +51,7 @@ const projects = [
     github: "https://github.com/zentaichi/swiss-army-tools",
     technologies: ["Vue.js", "Vite", "TailwindCSS", "Vue Router"],
     image: undefined,
-    status: "in-development" as ProjectStatus,
+    status: "inactive" as ProjectStatus,
     variant: "real" as ProjectVariant,
   },
   {
@@ -89,6 +89,7 @@ export function ProjectsSection() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => {
           const isInDevelopment = project.status === "in-development";
+          const isInactive = project.status === "inactive";
           const isLearning = project.variant === "learning";
           const isRealProject = project.variant === "real";
 
@@ -162,6 +163,11 @@ export function ProjectsSection() {
                       <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
                     </span>
                     In Development
+                  </span>
+                )}
+                {isInactive && (
+                  <span className="inline-flex items-center rounded-full border border-border/40 bg-secondary/20 px-2 py-0.5 font-mono text-xs leading-none text-muted-foreground/60">
+                    Inactive
                   </span>
                 )}
               </div>
