@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { AnimatedBackground } from '@/components/shared/animated-background'
 import { CommandPalette } from '@/components/shared/command-palette'
 import { CustomCursor } from '@/components/shared/custom-cursor'
+import { TerminalMockup } from '@/components/shared/terminal-mockup'
 import { ThemeToggle } from '@/components/shared/theme-toggle'
 import { UmamiAnalytics } from '@/components/shared/umami-analytics'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -111,6 +112,7 @@ export default function RootLayout({
           <CustomCursor />
           <AnimatedBackground />
           <div id="main-content">{children}</div>
+          <TerminalMockup />
           <ThemeToggle />
           <CommandPalette posts={posts} />
         </ThemeProvider>
