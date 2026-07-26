@@ -11,6 +11,28 @@ type ProjectVariant = "real" | "learning" | null;
 
 const projects = [
   {
+    title: "Horde",
+    description:
+      "Electron + Vue 3 desktop app for managing multiple PHP versions and portable database servers (MySQL/PostgreSQL/MariaDB) without Docker. Docker-free alternative to Laravel Herd/DBngin with system tray integration and service management.",
+    href: null,
+    github: "https://github.com/Zentaichi/horde",
+    technologies: ["Electron", "Vue 3", "TypeScript", "TailwindCSS", "SQLite", "Pinia", "tsyringe"],
+    image: undefined,
+    status: "in-development" as ProjectStatus,
+    variant: "real" as ProjectVariant,
+  },
+  {
+    title: "Sleepyhead CLI",
+    description:
+      "Guided TypeScript CLI for hardening MariaDB/MySQL installations with Transparent Data Encryption. Walks through validate → preview → execute → verify with automatic backups and rollback support at every stage.",
+    href: null,
+    github: "https://github.com/Zentaichi/sleepyhead-cli",
+    technologies: ["TypeScript", "Node.js", "MariaDB", "MySQL", "Commander", "Inquirer", "Vitest"],
+    image: undefined,
+    status: "in-development" as ProjectStatus,
+    variant: "real" as ProjectVariant,
+  },
+  {
     title: "The H.O.L.E.",
     description:
       "A digital sanctuary for unsent letters and unspoken words. HOLE is an anonymous platform where users can share letters they never sent, creating a collective space for emotional expression and healing.",
